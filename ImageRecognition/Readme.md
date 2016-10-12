@@ -16,4 +16,6 @@
   - วาดจุด และ ข้อความลงบนรูป
 7. จะได้ Output Image ออกมา
 ```
-![alt tag](https://lh6.googleusercontent.com/XhfktnCpnznhOJ1BDJSBxpsMX8KoLqXxFq82ppVDUbgUlpQ9DR3SnewT2YE8QBeqWvt8leWScRdQfFk=w1366-h638-rw)
+![ScreenShot](https://raw.github.com/FIBO-Robotics/Beginer/master/ImageRecognition/Output.png?raw=true "Output Image")
+Output Image
+
