@@ -73,6 +73,7 @@ for cnt in contours:
     cv2.putText(img, txt, (cx - 20, cy + 55), font, 0.4, (0, 0, 255), 1,cv2.LINE_AA)
 
 cv2.imshow('Output',img)
+cv2.imwrite('Output.png', img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
