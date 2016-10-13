@@ -2,29 +2,6 @@ import cv2
 import numpy as np
 import math
 
-#Input Image
-
-#Image Enchancement
-# -- Sharp, Blur
-
-#Image Morphological Processing
-# -- Erod
-
-#Image Segmentation
-# --
-
-#Feature Extraction
-# -- Properties of Shape, Area, Length
-# -- SIFT Feature
-# -- HOG Feature
-
-#Classification
-# -- SVM Support Vector Machine
-# -- Neuron Network
-# -- AdaBoost
-
-#Output Image
-
 img = cv2.imread('image.png')
 img_grey = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 thresh = cv2.bitwise_not(cv2.threshold(img_grey, 127, 255, 0)[1])
@@ -46,7 +23,7 @@ for cnt in contours:
 
     #Draw approx
     for i in approx:
-        cv2.circle(img, (i[0][0], i[0][1]), 3, (255, 0, 0), -1)
+        cv2.circle(img, (i[0,0], i[0,1]), 3, (255, 0, 0), -1)
 
     #Draw center of mass
     cv2.circle(img, (cx, cy), 3, (0, 255, 0), -1)
@@ -63,6 +40,7 @@ for cnt in contours:
         distant_A = int(math.sqrt(lenght_A))
         lenght_B = math.pow(math.fabs(approx[0, 0, 0] - approx[3, 0, 0]), 2) + math.pow(math.fabs(approx[0, 0, 1] - approx[3, 0, 1]), 2)
         distant_B = int(math.sqrt(lenght_B))
+
         # Check if Side A and Side B is equal.It's square
         if (distant_A == distant_B):
             txt = 'Square'
