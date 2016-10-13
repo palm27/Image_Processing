@@ -1,9 +1,6 @@
 import cv2
 import numpy as np
-
-
-
-#Liews Wuttipat
+import math
 
 #Input Image
 
@@ -47,7 +44,6 @@ for cnt in contours:
     epsilon = 0.03 * cv2.arcLength(cnt, True)
     approx = cv2.approxPolyDP(cnt, epsilon, True)
 
-
     #Draw approx
     for i in approx:
         cv2.circle(img, (i[0][0], i[0][1]), 3, (255, 0, 0), -1)
@@ -62,7 +58,16 @@ for cnt in contours:
     if len(approx)==3:
         txt = 'Triangle'
     elif len(approx)==4:
-        txt = 'Rectangle'
+        # Find Side A and Side B
+        lenght_A = math.pow(math.fabs(approx[0, 0, 0] - approx[1, 0, 0]), 2) + math.pow(math.fabs(approx[0, 0, 1] - approx[1, 0, 1]), 2)
+        distant_A = int(math.sqrt(lenght_A))
+        lenght_B = math.pow(math.fabs(approx[0, 0, 0] - approx[3, 0, 0]), 2) + math.pow(math.fabs(approx[0, 0, 1] - approx[3, 0, 1]), 2)
+        distant_B = int(math.sqrt(lenght_B))
+        # Check if Side A and Side B is equal.It's square
+        if (distant_A == distant_B):
+            txt = 'Square'
+        else:
+            txt = 'Rectangle'
     elif len(approx)==8:
         txt = 'Circle'
     cv2.putText(img, txt, (cx - 20, cy + 55), font, 0.4, (0, 0, 255), 1,cv2.LINE_AA)
